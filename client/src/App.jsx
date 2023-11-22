@@ -1,6 +1,6 @@
 import send from "./assets/send.svg";
 import user from "./assets/user.png";
-import bot from "./assets/bot.png";
+import bot from "./assets/bot.png"
 
 function App() {
   return (
