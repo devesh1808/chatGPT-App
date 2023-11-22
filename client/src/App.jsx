@@ -1,12 +1,26 @@
 import send from "./assets/send.svg";
 import user from "./assets/user.png";
+import bot from "./assets/bot.png";
 import loader from "./assets/loader.svg";
 
 function App() {
   return (
     <main className="chatGPT-app">
       <section className="chat-container">
-        <div className="layout"></div>
+        <div className="layout">
+          <div className="chat-bubble">
+            <div className="avatar">
+              <img src={user} />
+            </div>
+            <div className="post">lorem ipsum dollar site amet</div>
+          </div>
+          <div className="chat-bubble bot">
+            <div className="avatar">
+              <img src={bot} />
+            </div>
+            <div className="post">lorem ipsum dollar site amet</div>
+          </div>
+        </div>
       </section>
       <footer>
         <input
