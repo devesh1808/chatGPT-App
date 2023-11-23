@@ -3,6 +3,8 @@ import user from "./assets/user.png";
 import bot from "./assets/bot.png"
 
 function App() {
+  const [input, setInput] = useState("");
+  const [posts, setPosts] = useState([]);
   return (
     <main className="chatGPT-app">
       <section className="chat-container">
