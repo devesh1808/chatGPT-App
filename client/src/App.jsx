@@ -1,6 +1,7 @@
 import send from "./assets/send.svg";
 import user from "./assets/user.png";
 import bot from "./assets/bot.png";
+import loadingIcon from "./assets/loader.svg";
 
 function App() {
   const [input, setInput] = useState("");
@@ -10,11 +11,25 @@ function App() {
       <section className="chat-container">
         <div className="layout">
           {posts.map((post, index) => {
-            <div className={`chat-bubble ${post.type === "bot" || post.type === "loading" ? "bot" : ""}`}>
+            <div
+              className={`chat-bubble ${
+                post.type === "bot" || post.type === "loading" ? "bot" : ""
+              }`}
+            >
               <div className="avatar">
-                <img src={post.type === "bot" || post.type === "loading" ? bot : user} />
+                <img
+                  src={
+                    post.type === "bot" || post.type === "loading" ? bot : user
+                  }
+                />
               </div>
-              <div className="post">{post.post}</div>
+              {post.type === "loading" ? (
+                <div className="loader">
+                  <img src={loadingIcon} />
+                </div>
+              ) : (
+                <div className="post">{post.post}</div>
+              )}
             </div>;
           })}
         </div>
