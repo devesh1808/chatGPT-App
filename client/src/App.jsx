@@ -1,6 +1,6 @@
 import send from "./assets/send.svg";
 import user from "./assets/user.png";
-import bot from "./assets/bot.png"
+import bot from "./assets/bot.png";
 
 function App() {
   const [input, setInput] = useState("");
@@ -9,18 +9,14 @@ function App() {
     <main className="chatGPT-app">
       <section className="chat-container">
         <div className="layout">
-          <div className="chat-bubble">
-            <div className="avatar">
-              <img src={user} />
-            </div>
-            <div className="post">lorem ipsum dollar site amet</div>
-          </div>
-          <div className="chat-bubble bot">
-            <div className="avatar">
-              <img src={bot} />
-            </div>
-            <div className="post">lorem ipsum dollar site amet</div>
-          </div>
+          {posts.map((post, index) => {
+            <div className={`chat-bubble ${post.type === "bot" || post.type === "loading" ? "bot" : ""}`}>
+              <div className="avatar">
+                <img src={post.type === "bot" || post.type === "loading" ? bot : user} />
+              </div>
+              <div className="post">{post.post}</div>
+            </div>;
+          })}
         </div>
       </section>
       <footer>
