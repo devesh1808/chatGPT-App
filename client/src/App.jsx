@@ -12,6 +12,7 @@ function App() {
         <div className="layout">
           {posts.map((post, index) => {
             <div
+              key={index}
               className={`chat-bubble ${
                 post.type === "bot" || post.type === "loading" ? "bot" : ""
               }`}
