@@ -7,6 +7,20 @@ import loadingIcon from "./assets/loader.svg";
 function App() {
   const [input, setInput] = useState("");
   const [posts, setPosts] = useState([]);
+
+  const onSubmit = () => {
+    if (input.trim() === "") return; //checking if input string is empty
+    updatePosts(input);
+  };
+
+  const updatePosts = (post) => {
+    setPosts((prevState) => {
+      return [...prevState, { type: "user", post }];
+    });
+  };
+
+  const onKeyUp = () => {};
+
   return (
     <main className="chatGPT-app">
       <section className="chat-container">
@@ -42,9 +56,10 @@ function App() {
           autoFocus
           type="text"
           placeholder="Ask me anything!"
-          onChange={() => {}}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyUp={onKeyUp}
         />
-        <div className="send-button">
+        <div className="send-button" onClick={onSubmit}>
           <img src={send} />
         </div>
       </footer>
